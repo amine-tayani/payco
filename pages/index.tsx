@@ -1,86 +1,90 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import Head from "next/head";
+import { useState } from "react";
+import type { NextPage } from "next";
+import { CaretRight, List, X } from "phosphor-react";
 
 const Home: NextPage = () => {
+  const [navbar, setNavbar] = useState(false);
+
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="flex flex-col bg-[#191b1d] font-inter  min-h-screen justify-center py-2">
       <Head>
-        <title>Create Next App</title>
+        <title>Payco</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <nav className="w-full">
+        <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+          <div>
+            <div className="flex items-center justify-between py-3 md:py-5 md:block">
+              <div className="ml-10 mt-4 md:mt-0 md:ml-8">
+                <a
+                  href="/"
+                  className="text-2xl tracking-[-0.01em] font-alliance text-white "
+                >
+                  Payco
+                </a>
+              </div>
+              <div className="md:hidden">
+                <button
+                  aria-label="Open Menu"
+                  onClick={() => setNavbar(!navbar)}
+                  className="bg-[#6284ff] mt-4 flex items-center rounded-xl py-2 px-4 mr-6 text-sm text-neutral-100 hover:text-neutral-100 focus:outline-none md:mr-0 md:mt-0 md:hidden"
+                >
+                  <span className="mr-2">Menu</span>
+                  {navbar ? (
+                    <X size={18} weight="bold" />
+                  ) : (
+                    <List size={18} weight="bold" />
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div
+              className={`flex-1 fixed bg-[#191b1d] transition-opacity duration-300 ease-in-out z-50 min-w-full mt-12 min-h-screen md:block md:pb-0 md:mt-0 ${
+                navbar ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <ul className="items-center justify-center font-inter font-medium space-y-8 mx-10 md:flex md:space-x-6 md:space-y-0">
+                <li className="text-neutral-400 hover:text-blue-500">
+                  <a href="javascript:void(0)">Home</a>
+                </li>
+                <li className="text-neutral-400 hover:text-blue-500">
+                  <a href="javascript:void(0)">Blog</a>
+                </li>
+                <li className="text-neutral-400 hover:text-blue-500">
+                  <a href="javascript:void(0)">About US</a>
+                </li>
+                <li className="text-neutral-400 hover:text-blue-500">
+                  <a href="javascript:void(0)">Contact US</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main className="flex w-full flex-1 mt-20 pt-10 pb-7 px-3 justify-center text-center">
+        <div className="flex flex-col space-y-8">
+          <h1 className="text-[40px] font-alliance leading-[1.15em] tracking-[0.001em] text-white font-black">
+            Plateform that makes payment easy and fast
+          </h1>
+          <p className="text-neutral-500 text-lg font-inter px-4 font-medium">
+            Our technology will get you up and running in under an hour, with no
+            contracts and a dedicated support team. Get started here
+          </p>
+          <button className="bg-[#6284ff] flex space-x-1 items-center mx-8 font-medium w-32 rounded-full py-2 px-4 text-sm text-neutral-100 hover:text-neutral-100 focus:outline-none">
+            <span className="ml-1">Start now</span>
+            <CaretRight size={22} weight="bold" />
+          </button>
+          <img
+            className="px-4 mt-4 transform hover:rotate-3d transition-transform ease-out duration-300 md:rotate-3d"
+            src="/assets/mastercard.svg"
+          />
         </div>
       </main>
-
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
