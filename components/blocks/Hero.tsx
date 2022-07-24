@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
               Our technology will get you up and running in under an hour, with
               no contracts and a dedicated support team. Get started here
             </p>
-            <button className="bg-[#6284ff] flex space-x-1 items-center my-8 mx-8 lg:mx-0 py-2 lg:py-3 w-32 rounded-full px-4 text-sm text-neutral-100 hover:bg-[#4963c0] focus:outline-none">
+            <button className="bg-blue-500 flex space-x-1 items-center my-8 mx-8 lg:mx-0 py-2 w-32 rounded-xl px-4 text-sm text-neutral-100 hover:bg-[#4963c0] focus:outline-none">
               <span className="ml-2 font-semibold">Start now</span>
               <CaretRight size={15} weight="bold" />
             </button>
